@@ -28,6 +28,7 @@ packages: [
   "package-sync"
   "pane-manager"
   "pigments"
+  "project-manager"
   "pretty-json"
   "run-command"
   "set-syntax"
