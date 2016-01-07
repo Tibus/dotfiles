@@ -1,0 +1,7 @@
+syntax: glob
+
+*~
+._*
+.DS_Store
+.sass-cache
+*.sublime-workspace

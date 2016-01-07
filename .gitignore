@@ -1,0 +1,11 @@
+bin
+*.sublime-*
+storage
+compile-cache
+dev
+.npm
+.node-gyp
+atom/packages
+atom/.apm
+atom/blob-store
+atom/config.cson.bck

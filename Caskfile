@@ -1,0 +1,28 @@
+# --- Caskfile
+
+adobe-creative-cloud
+atom
+bettertouchtool
+codekit
+dropbox
+java
+eagle
+flux
+gas-mask
+google-chrome
+google-chrome-canary
+iterm2
+mou
+1password
+onyx
+postico
+robomongo
+sequel-pro
+steam
+sublime-text3
+tower
+transmission
+vlc
+virtualbox
+
+qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql webp-quicklook suspicious-package

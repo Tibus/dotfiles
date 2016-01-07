@@ -1,0 +1,15 @@
+# Path to your oh-my-zsh installation.
+export ZSH=~/.oh-my-zsh
+
+# Path to pwendok
+export PWENDOK=~/.dotfiles
+
+# Configuration
+    # Theme
+ZSH_THEME="tibus"
+    # Custom folder location
+ZSH_CUSTOM=$PWENDOK/zsh/custom
+    # Plugins
+plugins=(git brew docker sote leny-git-prompt)
+
+source $ZSH/oh-my-zsh.sh

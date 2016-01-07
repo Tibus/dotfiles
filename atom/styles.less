@@ -1,0 +1,148 @@
+/*
+ * Your Stylesheet
+ *
+ * This stylesheet is loaded when Atom starts up and is reloaded automatically
+ * when it is changed.
+ *
+ * If you are unfamiliar with LESS, you can read more about it here:
+ * http://www.lesscss.org
+ */
+
+// Custom styles for bookmarks
+
+@import "octicon-utf-codes.less";
+
+.tree-view-resizer {
+    background: #101112 !important;
+}
+
+atom-text-editor::shadow .gutter .line-number.bookmarked .icon-right {
+    visibility: visible;
+    opacity: 1;
+    padding: 0 0 0 .25em;
+
+    &:before {
+        content: @triangle-right;
+        font-size: 1em;
+        color: white;
+    }
+}
+
+// always show fold icons
+atom-text-editor::shadow .gutter .line-number.foldable .icon-right {
+    visibility: visible;
+}
+
+// Hack seti-ui
+
+@import "ui-mixins";
+@import "ui-variables";
+
+// fix height for empty tab-bar, allowing to drag & drop tabs between panes
+.list-inline.tab-bar.inset-panel {
+    height: 40px;
+}
+
+// adjust opacity & background-color setting in inactive panes, because it sucks
+@hacked-pane-background-color: lighten(@app-background-color, 7%);
+atom-pane {
+    background-color: @hacked-pane-background-color;
+    &:focus {
+        background-color: @hacked-pane-background-color;
+    }
+    &.active {
+        .item-views {
+            background: @hacked-pane-background-color;
+        }
+        atom-text-editor::shadow {
+            background-color: @hacked-pane-background-color;
+            .gutter {
+                // background-color: @hacked-pane-background-color;
+            }
+        }
+    }
+    &:not(.active) {
+        opacity: 1;
+
+        atom-text-editor {
+            background-color: @hacked-pane-background-color;
+            &::shadow .gutter {
+                background-color: @hacked-pane-background-color;
+            }
+        }
+        .tab.active {
+            border-bottom: solid 4px darken( @tab-highlight-color, 25% );
+            &:before {
+                border-bottom: solid 4px darken( @tab-highlight-color, 25% );
+            }
+        }
+    }
+    .settings-view atom-text-editor::shadow-container atom-text-editor[mini], .settings-view .editor-container atom-text-editor[mini].is-focused {
+        background: white;
+    }
+}
+
+// Hack Stylus coloration
+atom-text-editor::shadow {
+    .line {
+        .source.stylus {
+            .support.property-name {
+                color: #FFCC66;
+            }
+        }
+    }
+}
+
+// Hack Invisible Characters
+atom-text-editor::shadow {
+    .line .invisible-character {
+        opacity: .33;
+        color: @hacked-pane-background-color;
+    }
+    .line.cursor-line .invisible-character {
+        opacity: 0;
+    }
+}
+
+// Hack bracket matcher
+atom-text-editor::shadow .bracket-matcher .region {
+    border-bottom: 1px dotted darken( #ffcc66, 66% );
+}
+
+// Hack Lazy motion
+atom-text-editor::shadow {
+    .lazy-motion-match .region {
+      background-color: transparent;
+      border: 2px solid @syntax-result-marker-color;
+    }
+  .lazy-motion-match.top .region {
+    border: 2px solid @syntax-result-marker-color;
+  }
+  .lazy-motion-match.bottom .region {
+    border: 2px solid @syntax-result-marker-color;
+  }
+  .lazy-motion-match.current .region {
+    background-color: lighten( @app-background-color, 25% );
+  }
+  .lazy-motion-flash .region {
+    background-color: lighten( @app-background-color, 33% );
+  }
+  .lazy-motion-cursor .region {
+    background-color: @syntax-cursor-color;
+  }
+  .lazy-motion-hover {
+    color: hsl( hue( @text-color-warning ), 100% - saturation( @app-background-color ), 60% - lightness( @app-background-color ) * 0.2 );
+    background-color: lighten( @app-background-color, 12.5% );
+    &.top {
+      background-color: lighten( @app-background-color, 12.5% );
+    }
+    &.bottom {
+      background-color: lighten( @app-background-color, 12.5% );
+    }
+  }
+}
+
+// Hack pigments
+pigments-palette {
+    background: transparent;
+}
